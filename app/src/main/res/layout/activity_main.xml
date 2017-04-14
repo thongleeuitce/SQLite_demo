@@ -11,10 +11,10 @@
     tools:context="com.example.thongle.lab03_2.MainActivity">
 
     <Button
-        android:id="@+id/btn_sqlite_demo"
+        android:id="@+id/btn_users_management"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sqlite_demo"/>
+        android:text="@string/users_management"/>
     <Button
         android:id="@+id/btn_student_management"
         android:layout_width="match_parent"

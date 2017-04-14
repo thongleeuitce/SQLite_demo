@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button button_sqlite_demo;
+    private Button button_users_management;
     private Button button_student_management;
     private Button button_contact_management;
 
@@ -17,19 +17,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         button_contact_management = (Button) findViewById(R.id.btn_contact_management);
-        button_sqlite_demo = (Button) findViewById(R.id.btn_sqlite_demo);
+        button_users_management = (Button) findViewById(R.id.btn_users_management);
         button_student_management = (Button) findViewById(R.id.btn_student_management);
 
         button_contact_management.setOnClickListener(this);
-        button_sqlite_demo.setOnClickListener(this);
+        button_users_management.setOnClickListener(this);
         button_student_management.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.btn_sqlite_demo:
-                Intent intent = new Intent(this, SqliteDemoAcitivity.class);
+            case R.id.btn_users_management:
+                Intent intent = new Intent(this, UsersManagementAcitivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_student_management:

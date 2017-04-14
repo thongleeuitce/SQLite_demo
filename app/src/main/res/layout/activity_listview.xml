@@ -5,7 +5,7 @@
     android:layout_marginLeft="24dp"
     android:layout_marginRight="24dp">
     <TextView
-        android:id="@+id/txtv_user"
+        android:id="@+id/txtv_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <ListView

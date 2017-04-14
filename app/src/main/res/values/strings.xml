@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Lab03_2</string>
-    <string name="sqlite_demo">SQLite Demo</string>
+    <string name="users_management">Users Management</string>
     <string name="student_management">Student Management</string>
     <string name="contact_management">Contact Management</string>
+    <string name="users">Users: </string>
 </resources>
