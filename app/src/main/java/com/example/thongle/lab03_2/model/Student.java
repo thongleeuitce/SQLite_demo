@@ -16,7 +16,10 @@ public class Student {
         this.name = m_name;
         this.classname = m_classname;
     }
-
+    public Student(String m_name, String m_classname) {
+        this.name = m_name;
+        this.classname = m_classname;
+    }
     @Override
     public String toString() {
         return id + ". " + name + " " + classname;

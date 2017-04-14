@@ -19,11 +19,11 @@ import java.util.List;
  * Created by thongle on 11/04/2017.
  */
 
-public class StudentManagementActivity extends AppCompatActivity {
+public class StudentManagementActivity extends AppCompatActivity implements View.OnClickListener{
     private ListView listView_students;
     private TextView textView_students;
     private StudentsBaseAdapter studentsBaseAdapter;
-    private List<Student> list_students = new ArrayList<>();
+    private ArrayList<Student> list_students = new ArrayList<>();
     private ArrayAdapter<Student> arrayAdapter_students;
     private Button button_update;
     @Override
@@ -33,6 +33,8 @@ public class StudentManagementActivity extends AppCompatActivity {
         listView_students = (ListView) findViewById(R.id.listview_item);
         textView_students = (TextView) findViewById(R.id.txtv_list);
         button_update = (Button) findViewById(R.id.btn_update);
+
+        button_update.setOnClickListener(this);
         textView_students.setText(R.string.students);
         button_update.setVisibility(View.VISIBLE);
 
@@ -52,10 +54,23 @@ public class StudentManagementActivity extends AppCompatActivity {
         studentsBaseAdapter.addStudent(new Student(8, "Nguyen Manh Cuong", "KTMT2013"));
         studentsBaseAdapter.addStudent(new Student(9, "Le Chi Bao", "KTMT2015"));
         studentsBaseAdapter.addStudent(new Student(10, "Vuong Gia Phu", "MTCL2014"));
+        studentsBaseAdapter.addStudent(new Student(11, "Le Van", "KTMT2014"));
     }
     public void showData(){
         list_students = studentsBaseAdapter.getAllStudents();
         arrayAdapter_students = new ArrayAdapter<Student>(StudentManagementActivity.this, R.layout.item_list, list_students);
         listView_students.setAdapter(arrayAdapter_students);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_update:
+                studentsBaseAdapter.updateStudent(new Student(3, "Tran Van A", "CNPM2014"));
+                studentsBaseAdapter.updateStudent(new Student(4, "Tran Van B", "CNPM2015"));
+                studentsBaseAdapter.updateStudent(new Student(5, "Tran Van C", "CNPM2016"));
+                showData();
+                break;
+        }
     }
 }

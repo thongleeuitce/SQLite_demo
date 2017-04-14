@@ -4,8 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
+import com.example.thongle.lab03_2.StudentManagementActivity;
 import com.example.thongle.lab03_2.model.Student;
+import com.example.thongle.lab03_2.dbase_students.StudentDbSchema.StudentsTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,20 +36,31 @@ public class StudentsBaseAdapter {
         Cursor cursor = sqLiteDatabase.query(StudentDbSchema.StudentsTable.NAME, new String[]{StudentDbSchema.StudentsTable.Colunms.KEY_ID, StudentDbSchema.StudentsTable.Colunms.KEY_NAME, StudentDbSchema.StudentsTable.Colunms.KEY_CLASS}, StudentDbSchema.StudentsTable.Colunms.KEY_ID + "=?", new String[]{String.valueOf(m_id)}, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
-        Student student = new Student(cursor.getColumnIndex(StudentDbSchema.StudentsTable.Colunms.KEY_ID), String.valueOf(cursor.getColumnIndex(StudentDbSchema.StudentsTable.Colunms.KEY_NAME)), String.valueOf(cursor.getColumnIndex(StudentDbSchema.StudentsTable.Colunms.KEY_CLASS)));
+        Student student = new Student(cursor.getInt(cursor.getColumnIndex(StudentsTable.Colunms.KEY_ID)), cursor.getString(cursor.getColumnIndex(StudentsTable.Colunms.KEY_NAME)), cursor.getString(cursor.getColumnIndex(StudentsTable.Colunms.KEY_CLASS)));
         return  student;
     }
-    public List<Student> getAllStudents(){
-        List<Student> students = new ArrayList<>();
+    public ArrayList<Student> getAllStudents(){
+        ArrayList<Student> students = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.query(StudentDbSchema.StudentsTable.NAME, null, null, null, null, null, null, null);
         if (cursor == null)
             return null;
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
-            students.add(new Student(cursor.getInt(cursor.getColumnIndex(StudentDbSchema.StudentsTable.Colunms.KEY_ID)), cursor.getString(cursor.getColumnIndex(StudentDbSchema.StudentsTable.Colunms.KEY_NAME)), cursor.getString(cursor.getColumnIndex(StudentDbSchema.StudentsTable.Colunms.KEY_CLASS))));
+            students.add(new Student(cursor.getInt(cursor.getColumnIndex(StudentsTable.Colunms.KEY_ID)), cursor.getString(cursor.getColumnIndex(StudentsTable.Colunms.KEY_NAME)), cursor.getString(cursor.getColumnIndex(StudentsTable.Colunms.KEY_CLASS))));
             cursor.moveToNext();
         }
         return students;
+    }
+    public void updateStudent(Student student){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(StudentsTable.Colunms.KEY_NAME, student.getName());
+        contentValues.put(StudentsTable.Colunms.KEY_CLASS, student.getClassname());
+        Cursor cursor = sqLiteDatabase.query(StudentsTable.NAME, new String[]{StudentsTable.Colunms.KEY_ID}, StudentsTable.Colunms.KEY_ID + "=?", new String[]{String.valueOf(student.getId())}, null, null, null);
+        if (cursor == null){
+            Toast.makeText(context, "not found student " + student.getId(), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        sqLiteDatabase.update(StudentsTable.NAME, contentValues, StudentsTable.Colunms.KEY_ID + "=?", new String[]{String.valueOf(student.getId())});
     }
     public boolean deleteStudent(Student student){
         Cursor cursor = sqLiteDatabase.query(StudentDbSchema.StudentsTable.NAME, new String[]{StudentDbSchema.StudentsTable.Colunms.KEY_ID, StudentDbSchema.StudentsTable.Colunms.KEY_NAME, StudentDbSchema.StudentsTable.Colunms.KEY_CLASS}, StudentDbSchema.StudentsTable.Colunms.KEY_ID + "=?", new String[]{String.valueOf(student.getId())}, null, null, null);
