@@ -12,9 +12,17 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ContactManagementActivity"
+            android:label="@string/contact_management">
+        </activity>
+        <activity android:name=".SqliteDemoAcitivity"
+            android:label="@string/sqlite_demo">
+        </activity>
+        <activity android:name=".StudentManagementActivity"
+            android:label="@string/student_management">
         </activity>
     </application>
 
