@@ -8,10 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.thongle.lab03_2.users_dbase.UsersBaseAdapter;
-import com.example.thongle.lab03_2.users_dbase.UsersDbSchema.UsersTable;
-
-import org.w3c.dom.Text;
+import com.example.thongle.lab03_2.dbase_users.UsersBaseAdapter;
+import com.example.thongle.lab03_2.dbase_users.UsersDbSchema.UsersTable;
 
 import java.util.ArrayList;
 import java.util.List;

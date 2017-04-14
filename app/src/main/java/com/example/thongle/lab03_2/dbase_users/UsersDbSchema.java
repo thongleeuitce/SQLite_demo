@@ -1,4 +1,4 @@
-package com.example.thongle.lab03_2.users_dbase;
+package com.example.thongle.lab03_2.dbase_users;
 
 /**
  * Created by thongle on 14/04/2017.

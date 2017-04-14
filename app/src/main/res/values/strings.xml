@@ -4,4 +4,7 @@
     <string name="student_management">Student Management</string>
     <string name="contact_management">Contact Management</string>
     <string name="users">Users: </string>
+    <string name="students">Students: </string>
+    <string name="contacts">Contacts: </string>
+    <string name="update">Update</string>
 </resources>
