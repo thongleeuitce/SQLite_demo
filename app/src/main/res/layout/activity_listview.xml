@@ -20,4 +20,11 @@
         android:layout_gravity="center"
         android:visibility="gone"
         android:text="@string/update"/>
+    <Button
+        android:id="@+id/btn_delete_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/delete_all"
+        android:visibility="gone"/>
 </LinearLayout>

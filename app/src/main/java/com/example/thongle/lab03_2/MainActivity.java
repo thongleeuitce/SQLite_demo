@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.btn_student_management:
-                Intent intent1 = new Intent(this, StudentManagementActivity.class);
+                Intent intent1 = new Intent(this, StudentsManagementActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.btn_contact_management:
-                Intent intent2 = new Intent(this, ContactManagementActivity.class);
+                Intent intent2 = new Intent(this, ContactsManagementActivity.class);
                 startActivity(intent2);
                 break;
         }

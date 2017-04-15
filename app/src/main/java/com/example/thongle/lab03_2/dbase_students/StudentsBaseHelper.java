@@ -10,15 +10,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class StudentsBaseHelper extends SQLiteOpenHelper {
     private static final String STUDENTS_DATABASE_NAME = "StudentsBase.db";
-    private static final int STUDENtS_DATABASE_VERSION = 1;
-    private static final String STUDENtS_DATABASE_CREATE = "create table " + StudentDbSchema.StudentsTable.NAME + "(" + StudentDbSchema.StudentsTable.Colunms.KEY_ID + " integer primary key autoincrement," + StudentDbSchema.StudentsTable.Colunms.KEY_NAME + " text," + StudentDbSchema.StudentsTable.Colunms.KEY_CLASS + " text" + ")";
+    private static final int STUDENTS_DATABASE_VERSION = 1;
+    private static final String STUDENTS_DATABASE_CREATE = "create table " + StudentDbSchema.StudentsTable.NAME + "(" + StudentDbSchema.StudentsTable.Colunms.KEY_ID + " integer primary key autoincrement," + StudentDbSchema.StudentsTable.Colunms.KEY_NAME + " text," + StudentDbSchema.StudentsTable.Colunms.KEY_CLASS + " text" + ")";
 
     public StudentsBaseHelper(Context context) {
-        super(context, STUDENTS_DATABASE_NAME, null, STUDENtS_DATABASE_VERSION);
+        super(context, STUDENTS_DATABASE_NAME, null, STUDENTS_DATABASE_VERSION);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(STUDENtS_DATABASE_CREATE);
+        db.execSQL(STUDENTS_DATABASE_CREATE);
     }
 
     @Override

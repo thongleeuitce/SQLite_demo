@@ -7,4 +7,5 @@
     <string name="students">Students: </string>
     <string name="contacts">Contacts: </string>
     <string name="update">Update</string>
+    <string name="delete_all">Delete all</string>
 </resources>

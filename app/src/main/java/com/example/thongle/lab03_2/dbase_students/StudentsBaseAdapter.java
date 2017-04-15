@@ -6,12 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
-import com.example.thongle.lab03_2.StudentManagementActivity;
 import com.example.thongle.lab03_2.model.Student;
 import com.example.thongle.lab03_2.dbase_students.StudentDbSchema.StudentsTable;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by thongle on 14/04/2017.
@@ -27,13 +25,13 @@ public class StudentsBaseAdapter {
     }
     public void addStudent(Student student){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(StudentDbSchema.StudentsTable.Colunms.KEY_ID, student.getId());
-        contentValues.put(StudentDbSchema.StudentsTable.Colunms.KEY_NAME, student.getName());
-        contentValues.put(StudentDbSchema.StudentsTable.Colunms.KEY_CLASS, student.getClassname());
-        sqLiteDatabase.insert(StudentDbSchema.StudentsTable.NAME, null, contentValues);
+        contentValues.put(StudentsTable.Colunms.KEY_ID, student.getId());
+        contentValues.put(StudentsTable.Colunms.KEY_NAME, student.getName());
+        contentValues.put(StudentsTable.Colunms.KEY_CLASS, student.getClassname());
+        sqLiteDatabase.insert(StudentsTable.NAME, null, contentValues);
     }
     public Student getStudent(int m_id){
-        Cursor cursor = sqLiteDatabase.query(StudentDbSchema.StudentsTable.NAME, new String[]{StudentDbSchema.StudentsTable.Colunms.KEY_ID, StudentDbSchema.StudentsTable.Colunms.KEY_NAME, StudentDbSchema.StudentsTable.Colunms.KEY_CLASS}, StudentDbSchema.StudentsTable.Colunms.KEY_ID + "=?", new String[]{String.valueOf(m_id)}, null, null, null);
+        Cursor cursor = sqLiteDatabase.query(StudentsTable.NAME, new String[]{StudentsTable.Colunms.KEY_ID, StudentsTable.Colunms.KEY_NAME, StudentsTable.Colunms.KEY_CLASS}, StudentsTable.Colunms.KEY_ID + "=?", new String[]{String.valueOf(m_id)}, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
         Student student = new Student(cursor.getInt(cursor.getColumnIndex(StudentsTable.Colunms.KEY_ID)), cursor.getString(cursor.getColumnIndex(StudentsTable.Colunms.KEY_NAME)), cursor.getString(cursor.getColumnIndex(StudentsTable.Colunms.KEY_CLASS)));
@@ -41,7 +39,7 @@ public class StudentsBaseAdapter {
     }
     public ArrayList<Student> getAllStudents(){
         ArrayList<Student> students = new ArrayList<>();
-        Cursor cursor = sqLiteDatabase.query(StudentDbSchema.StudentsTable.NAME, null, null, null, null, null, null, null);
+        Cursor cursor = sqLiteDatabase.query(StudentsTable.NAME, null, null, null, null, null, null, null);
         if (cursor == null)
             return null;
         cursor.moveToFirst();

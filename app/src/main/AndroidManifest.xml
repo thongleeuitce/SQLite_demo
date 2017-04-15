@@ -15,13 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ContactManagementActivity"
+        <activity android:name=".ContactsManagementActivity"
             android:label="@string/contact_management">
         </activity>
         <activity android:name=".UsersManagementAcitivity"
             android:label="@string/users_management">
         </activity>
-        <activity android:name=".StudentManagementActivity"
+        <activity android:name=".StudentsManagementActivity"
             android:label="@string/student_management">
         </activity>
     </application>
