@@ -25,13 +25,13 @@ public class ImportBaseHelper extends SQLiteOpenHelper{
         copydatabase();
     }
     private void copydatabase() throws IOException {
-        //Open your local db as the input stream
+
         InputStream myinput = m_context.getAssets().open(IMPORT_DB_NAME);
-        // Path to the just created empty db
+
         String outfilename = IMPORT_DB_PATH + IMPORT_DB_NAME;
-        //Open the empty db as the output stream
+
         OutputStream myoutput = new FileOutputStream(outfilename);
-        // transfer byte to inputfile to outputfile
+
         byte[] buffer = new byte[1024];
         int length;
         while ((length = myinput.read(buffer))>0) {

@@ -24,7 +24,7 @@ public class ImportDbActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview);
         try {
-            sqLiteDatabase = new ImportBaseHelper(this).getReadableDatabase();
+            sqLiteDatabase = new ImportBaseHelper(this).getWritableDatabase();
             Toast.makeText(this, "Imported database", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
