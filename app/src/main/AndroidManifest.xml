@@ -24,6 +24,9 @@
         <activity android:name=".StudentsManagementActivity"
             android:label="@string/student_management">
         </activity>
+        <activity android:name=".ImportDbActivity"
+            android:label="@string/import_db">
+        </activity>
     </application>
 
 </manifest>

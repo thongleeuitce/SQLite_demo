@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button button_users_management;
     private Button button_student_management;
     private Button button_contact_management;
+    private Button button_import_db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_contact_management = (Button) findViewById(R.id.btn_contact_management);
         button_users_management = (Button) findViewById(R.id.btn_users_management);
         button_student_management = (Button) findViewById(R.id.btn_student_management);
+        button_import_db = (Button) findViewById(R.id.btn_import_db);
 
+        button_import_db.setOnClickListener(this);
         button_contact_management.setOnClickListener(this);
         button_users_management.setOnClickListener(this);
         button_student_management.setOnClickListener(this);
@@ -28,6 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch(v.getId()){
+            case R.id.btn_import_db:
+                Intent intent0 = new Intent(this, ImportDbActivity.class);
+                startActivity(intent0);
+                break;
             case R.id.btn_users_management:
                 Intent intent = new Intent(this, UsersManagementAcitivity.class);
                 startActivity(intent);

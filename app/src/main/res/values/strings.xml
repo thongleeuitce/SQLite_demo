@@ -8,4 +8,5 @@
     <string name="contacts">Contacts: </string>
     <string name="update">Update</string>
     <string name="delete_all">Delete all</string>
+    <string name="import_db">Import Database</string>
 </resources>
